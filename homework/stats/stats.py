@@ -27,23 +27,28 @@ def stats():
             if 'and' in line:
                 and_lines += 1
 
-        print(f"total lines: {all_lines}")
-        print(f"empty lines: {empty_lines}")
-        print(f"lines with 'z': {z_lines}")
-        print(f"'z' count': {z_letters}")
-        print(f"lines with 'and': {and_lines}")
+        list_result = [f"total lines: {all_lines}",
+                       f"empty lines: {empty_lines}",
+                       f"lines with 'z': {z_lines}",
+                       f"'z' count': {z_letters}",
+                       f"lines with 'and': {and_lines}"]
 
-        def another_file_question():
-            """Analyzing another file or ending a program."""
+        return list_result
 
-            answer = input("Do you want to analyze another file? y/n: ")
-            if answer == 'Y' or answer == 'y':
-                stats()
-            else:
-                print('Goodbye!')
 
-        another_file_question()
+def execution():
+    """Making a decision to repeat or stop the program."""
+
+    condition = 1
+    while condition:
+        print(stats())
+        answer = input('Do you want ot analyze another file? y/n: ').lower()
+        if answer == 'y':
+            condition = 1
+        else:
+            condition = 0
+            print('Goodbye!')
 
 
 if __name__ == '__main__':
-    stats()
+    execution()
