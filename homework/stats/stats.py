@@ -1,10 +1,10 @@
-def stats():
+def get_stats():
     """Statistic about given file: number of lines, number of empty lines,
     number of lines with 'z', number of 'z' letter, number of lines with 'and'"""
 
     file = input("File: ")
 
-    all_lines = 0
+    total_lines = 0
     empty_lines = 0
     z_lines = 0
     z_letters = 0
@@ -12,7 +12,7 @@ def stats():
 
     with open(file, 'r') as f:
         for line in f:
-            all_lines += 1
+            total_lines += 1
 
             if line == '\n':
                 empty_lines += 1
@@ -27,7 +27,7 @@ def stats():
             if 'and' in line:
                 and_lines += 1
 
-        list_result = [f"total lines: {all_lines}",
+        list_result = [f"total lines: {total_lines}",
                        f"empty lines: {empty_lines}",
                        f"lines with 'z': {z_lines}",
                        f"'z' count': {z_letters}",
@@ -41,7 +41,7 @@ def execution():
 
     condition = 1
     while condition:
-        print(stats())
+        print(get_stats())
         answer = input('Do you want ot analyze another file? y/n: ').lower()
         if answer == 'y':
             condition = 1
