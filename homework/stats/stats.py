@@ -39,15 +39,12 @@ def get_stats():
 def execution():
     """Making a decision to repeat or stop the program."""
 
-    condition = 1
-    while condition:
+    while True:
         print(get_stats())
         answer = input('Do you want ot analyze another file? y/n: ').lower()
-        if answer == 'y':
-            condition = 1
-        else:
-            condition = 0
-            print('Goodbye!')
+        if answer != 'y':
+            print('Goodbye')
+            break
 
 
 if __name__ == '__main__':
