@@ -35,7 +35,7 @@ def execution():
 
     while True:
         print(get_stats())
-        answer = input('Do you want ot analyze another file? y/n: ').lower()
+        answer = input('Do you want to analyze another file? y/n: ').lower()
         if answer != 'y':
             print('Goodbye!')
             break
