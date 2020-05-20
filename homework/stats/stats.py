@@ -4,36 +4,30 @@ def get_stats():
 
     file = input("File: ")
 
-    total_lines = 0
-    empty_lines = 0
-    z_lines = 0
-    z_letters = 0
-    and_lines = 0
+    dict_result = {
+        'total_lines': 0,
+        'empty_lines': 0,
+        'z_lines': 0,
+        'z_letters': 0,
+        'and_lines': 0
+    }
 
     with open(file, 'r') as f:
         for line in f:
-            total_lines += 1
+            dict_result['total_lines'] += 1
 
             if line == '\n':
-                empty_lines += 1
+                dict_result['empty_lines'] += 1
 
             if 'z' in line:
-                z_lines += 1
-
-            for char in line:
-                if char == 'z':
-                    z_letters += 1
+                dict_result['z_lines'] += 1
 
             if 'and' in line:
-                and_lines += 1
+                dict_result['and_lines'] += 1
 
-        list_result = [f"total lines: {total_lines}",
-                       f"empty lines: {empty_lines}",
-                       f"lines with 'z': {z_lines}",
-                       f"'z' count': {z_letters}",
-                       f"lines with 'and': {and_lines}"]
+            dict_result['z_letters'] += line.count('z')
 
-        return list_result
+        return dict_result
 
 
 def execution():
@@ -43,7 +37,7 @@ def execution():
         print(get_stats())
         answer = input('Do you want ot analyze another file? y/n: ').lower()
         if answer != 'y':
-            print('Goodbye')
+            print('Goodbye!')
             break
 
 
