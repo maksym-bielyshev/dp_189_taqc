@@ -1,5 +1,6 @@
 import math
 
+
 def task_time_borders():
     best_case_estimate = float(input('best-case estimate: '))
     most_likely_estimate = float(input('most-likely estimate: '))
@@ -14,7 +15,8 @@ standard_deviation_tasks = []
 def sd_project():
     quadra_list = []
     for i in standard_deviation_tasks:
-        quadra_list.append(i ** 2)
+        quadra_list.append(pow(i, 2))
+        # quadra_list.append(i ** 2)
     print(math.sqrt(sum(quadra_list)))
 
 
