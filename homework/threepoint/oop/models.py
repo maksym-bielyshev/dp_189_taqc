@@ -32,4 +32,4 @@ class Task:
         return (self.best_case_estimate + 4 * self.most_likely_estimate + self.worst_case_estimate) / 6
 
     def calculate_task_standard_deviation(self):
-        return self.worst_case_estimate/6 - self.best_case_estimate/6
+        return (self.worst_case_estimate - self.best_case_estimate)/6
