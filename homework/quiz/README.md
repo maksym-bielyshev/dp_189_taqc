@@ -13,6 +13,7 @@ Physical data structure:
 - a quiz is a directory
 - a section is a file in the directory
 - a question is a line in the file
+
 The application runs quiz based on given directory and stores all answers in a separate file using
 `<question> : <answer>` format. Also, it stores timing (how long it takes) for each individual
 section and for the whole quiz in a separate file.
