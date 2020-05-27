@@ -6,5 +6,6 @@ from numtowords.greetings import hello
 if __name__ == "__main__":
     hello()
 
+# todo move to external modules
 user_number = input("Enter number: ")
 print(num2words(user_number))

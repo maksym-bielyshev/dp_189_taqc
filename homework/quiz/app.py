@@ -70,6 +70,8 @@ if __name__ == "__main__":
 
     new_section = section_generator(files)
 
+    start_quiz_time = datetime.now()
+
     for item in files:
         user_input = input("Start a new section? y/n").lower()
         if user_input == 'y':
@@ -77,4 +79,11 @@ if __name__ == "__main__":
         else:
             print("Goodbye!")
             break
-    print("All sections are passed.")
+    print("The end of the program.")
+
+    end_quiz_time = datetime.now()
+
+    quiz_duration = (end_quiz_time - start_quiz_time)
+
+    with current_file(f"{path_to_program}time.txt", "a") as time:
+        time.write(f"{quiz_duration}\n")

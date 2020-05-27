@@ -53,56 +53,56 @@ class Task:
         return self.standard_deviation
 
 
-def user_estimation():
-    best_case_estimate = int(input("Best-case estimate: "))
-    most_likely_estimate = int(input("Most-likely estimate: "))
-    worst_case_estimate = int(input("Worst-case estimate: "))
-    return best_case_estimate, most_likely_estimate, worst_case_estimate
-
-
-def console():
+def main_app():
     estimated_tasks_values = []
     standard_deviation_tasks_values = []
     
     while True:
+        def user_estimation():
+            best_case_estimate = int(input("Best-case estimate: "))
+            most_likely_estimate = int(input("Most-likely estimate: "))
+            worst_case_estimate = int(input("Worst-case estimate: "))
+            return \
+                best_case_estimate, most_likely_estimate, worst_case_estimate
+
         user_input = user_estimation()
         task = Task(*user_input)
         
-        task_estimation = Task.calculate_task_estimation(task)
+        task_estimation = task.calculate_task_estimation()
 
         estimated_tasks_values.append(task_estimation)
 
-        print(task.estimation)
+        # print(task.estimation)
 
         print("E(task) (estimation for each task): ", estimated_tasks_values)
 
-        standard_deviation_task = Task.calculate_task_standard_deviation(task)
+        standard_deviation_task = task.calculate_task_standard_deviation()
 
         standard_deviation_tasks_values.append(standard_deviation_task)
         print("SD(task) (standard deviation for each task): ",
               standard_deviation_tasks_values)
 
-        print(task.standard_deviation)
+        # print(task.standard_deviation)
 
-        print(f'estimated_tasks {estimated_tasks_values}')
+        #print(f'estimated_tasks {estimated_tasks_values}')
 
         answer = input("Do you want to add another task? y/n: ").lower()
         if answer != "y":
             project = Project(estimated_tasks_values,
                               standard_deviation_tasks_values)
 
-            expected_value_project = Project.\
-                calculate_expected_value_project(project)
+            expected_value_project = project.\
+                calculate_expected_value_project()
             print(f"E(project)(expected value for project): "
                   f"{expected_value_project}")
 
-            standard_error_project = Project.\
-                calculate_standard_error_project(project)
+            standard_error_project = project.\
+                calculate_standard_error_project()
             print(f"SE(project)(standard error for project): "
                   f"{standard_error_project}")
 
             min_confidence_interval, max_confidence_interval = \
-                Project.calculate_confidence_interval(project)
+                project.calculate_confidence_interval()
 
             print(f"CI (confidence interval for project): "
                   f"{min_confidence_interval} ... "
@@ -111,4 +111,4 @@ def console():
 
 
 if __name__ == "__main__":
-    console()
+    main_app()

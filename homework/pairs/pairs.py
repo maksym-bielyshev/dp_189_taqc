@@ -1,5 +1,6 @@
 def search_pairs(numbers: list, required_sum: int) -> list:
     """Searching for pairs whose sum is equal to a required one."""
+    #todo docstring returning values with exception
 
     list_of_pairs = []
     all_numbers = set()
