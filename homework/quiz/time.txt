@@ -1,4 +1,0 @@
-section1.txt : 0:00:07.698962
-section2.txt : 0:00:05.734024
-section1.txt : 0:00:05.209047
-section2.txt : 0:00:03.812884
