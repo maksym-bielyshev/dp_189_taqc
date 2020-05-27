@@ -28,7 +28,7 @@ def console():
         if answer != "y":
             project = Project(estimated_tasks, standard_deviation_tasks)
 
-            expected_value_project = project.calculate_expected_value_project()
+            expected_value_project = Project.calculate_expected_value_project()
             print(f"E(project)(expected value for project): "
                   f"{expected_value_project}")
 
