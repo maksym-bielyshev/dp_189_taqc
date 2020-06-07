@@ -5,3 +5,8 @@ Please write a program which will greet a user, ask him/her for a number, and tr
 - [x] create a package with the logic (it has to be distributed across several modules)
 - [x] add documentation which passes default pydocstyle rules
 - [x] configure execution via python -m ...
+
+# changelog
+
+27.05.2020 — 6.03.2020
+- "try/except" added

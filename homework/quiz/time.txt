@@ -1,0 +1,8 @@
+age.txt : 0:00:01.895952
+name.txt : 0:00:00.649425
+surname.txt : 0:00:00.754968
+Total time for 'Personal questions': 0:00:03.303333
+age.txt : 0:00:01.233608
+name.txt : 0:00:00.781222
+surname.txt : 0:00:01.693548
+Total time for 'Personal questions': 0:00:03.711370

@@ -13,3 +13,6 @@ Project's 95% confidence interval: 100 ... 120 points
 ```
 where ```100``` and ```120``` are values of Min and Max ```CI(project)```.
 
+# changelog
+
+27.05.2020 — 6.03.2020

@@ -1,0 +1,15 @@
+the line with the dot at the end.
+the line without the dot at the end
+
+the line with less than 100 characters
+the line with more than 100 characters, the line consists from 103 characters (characters, characters)
+the line with at least 5 a letters line. aaaaa
+the line without at least 5 a letters
+the line with more than 3 z letters. zzzz
+the line with less than 3 z letters
+
+the empty line above
+123
+the line above consists only from non-letter characters
+zaz zara Ararat ZULU Ozz and more amazing words
+the second line with the dot at the end.

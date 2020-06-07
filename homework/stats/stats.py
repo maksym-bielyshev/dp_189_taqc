@@ -1,7 +1,11 @@
-def get_stats():
-    """Statistic about given file: number of lines, number of empty lines,
-    number of lines with 'z', number of 'z' letter, number of lines with 'and'"""
+"""Get the statistics about the file and decide on the repetition."""
 
+
+def get_stats() -> dict:
+    """Get required statistic about given file.
+
+    :return: dict
+    """
     file = input("File: ")
 
     dict_result = {
@@ -31,8 +35,10 @@ def get_stats():
 
 
 def execution():
-    """Making a decision to repeat or stop the program."""
+    """Make a decision to repeat or stop the program.
 
+    :return: function get_stats() or break
+    """
     while True:
         print(get_stats())
         answer = input('Do you want to analyze another file? y/n: ').lower()

@@ -1,11 +1,9 @@
-"""Start and execution of the program."""
+"""Start and execution of the program with all imported modules."""
 
-from num2words import num2words
-from numtowords.greetings import hello
+
+from numtowords.instruction import instruction
+from numtowords.num_to_words_converter import converter, num2words
 
 if __name__ == "__main__":
-    hello()
-
-# todo move to external modules
-user_number = input("Enter number: ")
-print(num2words(user_number))
+    print(instruction())
+    print(converter())

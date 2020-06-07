@@ -37,3 +37,7 @@ Please take into account, that the program
 - has to ask a user about a path to a file
 - has to ask a user if one more file needs to be analyzed
 - has to stop only if a user wants to stop
+
+# changelog
+
+27.05.2020 — 6.03.2020

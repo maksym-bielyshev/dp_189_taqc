@@ -1,24 +1,19 @@
+import inspect
+
+"""The program for conducting the quiz and saving the results."""
+
 import os
-from contextlib import contextmanager
 from datetime import datetime
 
 
-@contextmanager
-def current_file(filename, mode):
-    curr_file = open(filename, mode)
-    try:
-        print(f"{filename} is ready to use.")
-        yield curr_file
-    finally:
-        curr_file.close()
 
-
-def play_section():
+def run_section():
+    """Run section and write down results."""
     name_section = next(new_section)
-    with current_file(f"{path_to_program}"
-                      f"{user_chosen_quiz}/{name_section}", "r") as section, \
-            current_file(f"{path_to_program}answers.txt", "a") as answers, \
-            current_file(f"{path_to_program}time.txt", "a") as time:
+    with open(f"{path_to_quizzes}"
+              f"{user_chosen_quiz}/{name_section}", "r") as section, \
+            open(f"{path_to_quizzes}answers.txt", "a") as answers, \
+            open(f"{path_to_quizzes}time.txt", "a") as time:
 
         def line_generator(file):
             for line in file:
@@ -26,13 +21,15 @@ def play_section():
 
         line = line_generator(section)
 
+        # section.readline()
+
         start_section_time = datetime.now()
 
         while True:
             try:
                 question = next(line).strip()
                 print(question)
-                user_answer = input('enter the answer: ').strip()
+                user_answer = input('Your answer: ').strip()
                 question_answer = f"{question} : {user_answer} \n"
                 answers.write(f"{question_answer}")
             except:
@@ -44,46 +41,50 @@ def play_section():
 
 
 if __name__ == "__main__":
-    path_to_program = 'C:/Users/Maksym/Documents/dp-189-taqc/homework/quiz/'
-    list_subdirectories = [i for i in os.walk(path_to_program)][0][1]
-    print(list_subdirectories)
+    path_to_quizzes = input("Hello! Please enter the path to the quizzes:")
 
-    dict_quizzes = {i: list_subdirectories[i] for i in
+    list_subdirectories = [item for item in os.walk(path_to_quizzes)][0][1]
+
+    dict_quizzes = {index: list_subdirectories[index] for index in
                     range(0, len(list_subdirectories)) if
-                    list_subdirectories[i] != '__pycache__'}
-    print(dict_quizzes)
+                    list_subdirectories[index] != '__pycache__'}
 
     user_chosen_quiz = dict_quizzes.get(
-        int(input(f"Hello! Please enter the number of quiz: {dict_quizzes}")))
+        int(input(f"Please enter the number of quiz: {dict_quizzes}")))
 
-    quiz_directory = f'{path_to_program}{user_chosen_quiz}'
+    quiz_directory = f'{path_to_quizzes}{user_chosen_quiz}'
 
     files = os.listdir(quiz_directory)
-    print(files)
 
-    sections = {i: files[i] for i in range(0, len(files))}
+    sections = {index: files[index] for index in range(0, len(files))}
 
+    def section_generator(sections):
+        """Get the next section of the quiz.
 
-    def section_generator(list):
-        for item in list:
-            yield item
+        :param sections:
+        :return: next list item
+        """
+        for section in sections:
+            yield section
 
-    new_section = section_generator(files)
+    new_section = section_generator(sections)
+
+    def run_quiz():
+        """Run all sections from the directory one by one.
+
+        :return: next quiz
+        """
+        for item in sections:
+
+            run_section()
 
     start_quiz_time = datetime.now()
-
-    for item in files:
-        user_input = input("Start a new section? y/n").lower()
-        if user_input == 'y':
-            play_section()
-        else:
-            print("Goodbye!")
-            break
-    print("The end of the program.")
-
+    run_quiz()
     end_quiz_time = datetime.now()
+    quiz_duration = f"Total time for '{user_chosen_quiz}': " \
+                    f"{(end_quiz_time - start_quiz_time)}"
 
-    quiz_duration = (end_quiz_time - start_quiz_time)
-
-    with current_file(f"{path_to_program}time.txt", "a") as time:
+    with open(f"{path_to_quizzes}time.txt", "a") as time:
         time.write(f"{quiz_duration}\n")
+
+    print("Thank you, your answers and time of the quiz are recorded.")

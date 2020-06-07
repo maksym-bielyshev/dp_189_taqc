@@ -1,0 +1,6 @@
+How old are you? : q 
+What is your name? : w 
+What is your surname? : e 
+How old are you? : 2 
+What is your name? : 2 
+What is your surname? : 3 
