@@ -34,6 +34,7 @@ class Option(ABC):
 class AnnotationOption(Option):
     def filter_file(self, file):
         print('annotation_option')
+        print(sys.argv[2])
 
 
 class FilterOption(Option):
@@ -122,4 +123,3 @@ if __name__ == "__main__":
     #                 line_result.append(check.name())
     #         print(" ".join(line_result))
     #         line_number += 1
-
