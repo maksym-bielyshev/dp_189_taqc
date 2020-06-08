@@ -1,3 +1,5 @@
+"""The module calls functions from other logged modules."""
+
 from unrealmath.addition import add
 from unrealmath.subtraction import reduce
 
