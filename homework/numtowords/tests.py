@@ -7,7 +7,7 @@ from num_to_words_converter import num2words_fixed_minus_zero_one
 
 
 class TestNum2Words(TestCase):
-    """Test case for the functions 'num2words' and fixed version."""
+    """Test case for the function 'num2words'."""
 
     def test_positive(self):
         """Test function 'num2words' with argument that are greater than zero.
@@ -43,7 +43,7 @@ class TestNum2Words(TestCase):
 
 
 class TestNum2WordsFixedMinusZeroOne(TestCase):
-    """Test for fixed function 'num2words_fixed_minus_zero_one'."""
+    """Test for function 'num2words_fixed_minus_zero_one'."""
 
     def test_negative_from_zero_to_one(self):
         """Test function with argument that between zero and minus one.
