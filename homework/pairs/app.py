@@ -22,7 +22,7 @@ def search_pairs(numbers: list, required_sum: int) -> list:
 if __name__ == '__main__':
     run_app = 'y'
     while run_app == 'y':
-        input_numbers = input('Please enter numbers with a space delimiter: ')
+        input_numbers = input('Please enter integers with a space delimiter: ')
         input_required_sum = input("Please enter a required sum: ")
 
         try:
