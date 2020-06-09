@@ -1,7 +1,7 @@
 """Function with greeting and info about how the app works."""
 
 
-def instruction():
+def instruction() -> str:
     """Print the greeting and info about the program.
 
     :return: string with greeting info about application

@@ -3,7 +3,7 @@
 from num2words import num2words
 
 
-def num2words_fixed_minus_zero_one(user_input_number) -> str:
+def num2words_fixed_minus_zero_one(user_input_number: str) -> str:
     """Convert number to the string representation.
 
     :return: string with result
