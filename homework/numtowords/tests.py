@@ -9,7 +9,7 @@ class NumToWords(TestCase):
     """Test case for the function 'num2words_fixed_minus_zero_one'."""
 
     def test_positive(self):
-        """Test function with arguments that are greater than zero.
+        """Test function with argument that are greater than zero.
 
         :return: True or AssertionError
         """
@@ -17,7 +17,7 @@ class NumToWords(TestCase):
         self.assertEqual(result, 'one')
 
     def test_negative(self):
-        """Test function with arguments that are less than zero.
+        """Test function with argument that are less than zero.
 
         :return: True or AssertionError
         """
@@ -25,7 +25,7 @@ class NumToWords(TestCase):
         self.assertEqual(result, 'minus one')
 
     def test_negative_from_zero_to_one(self):
-        """Test function with arguments that are not suitable for displaying.
+        """Test function with argument that between zero and minus one.
 
         :return: True or AssertionError
         """
