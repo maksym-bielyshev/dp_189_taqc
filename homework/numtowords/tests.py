@@ -34,7 +34,7 @@ class TestNum2Words(TestCase):
         self.assertEqual(result, 'minus zero point five')
 
 
-class Num2WordsFixedMinusZeroOne(TestCase):
+class TestNum2WordsFixedMinusZeroOne(TestCase):
     def test_negative_from_zero_to_one(self):
         """Test function with argument that between zero and minus one.
 
