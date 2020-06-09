@@ -3,14 +3,21 @@
 from num2words import num2words
 
 
-def converter() -> str:
+def num2words_fixed_minus_zero_one() -> str:
     """Convert number to the string representation.
 
     :return: string with result
     """
-    user_provided_number = input("Enter the number: ")
+    user_input_number = input("Enter the number: ")
 
     try:
-        return num2words(user_provided_number)
-    except:
-        return "Please enter only the number!"
+        if 0 > float(user_input_number) > -1:
+            number_without_minus = user_input_number.lstrip("-")
+            text_representation_without_minus = num2words(number_without_minus)
+            return f"minus {text_representation_without_minus}"
+
+        else:
+            return num2words(user_input_number)
+
+    except ValueError:
+        return f"Please enter only the number!"
