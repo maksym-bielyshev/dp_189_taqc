@@ -20,7 +20,8 @@ def search_pairs(numbers: list, required_sum: int) -> list:
 
 
 if __name__ == '__main__':
-    while True:
+    run_app = 'y'
+    while run_app == 'y':
         input_numbers = input('Please enter numbers with a space delimiter: ')
         input_required_sum = input("Please enter a required sum: ")
 
@@ -40,6 +41,4 @@ if __name__ == '__main__':
             else:
                 print("Nothing found.")
 
-        continue_decision = input("Do you want to continue? Y/N ").lower()
-        if continue_decision != 'y':
-            break
+        run_app = input("Do you want to continue? Y/N ").lower()
