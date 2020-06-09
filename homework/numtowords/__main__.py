@@ -2,7 +2,7 @@
 
 
 from numtowords.instruction import instruction
-from numtowords.num_to_words_converter import num2words_fixed_minus_zero_one
+from numtowords.num_to_words_converter import num2words
 
 if __name__ == "__main__":
     run_app = 'y'
@@ -12,7 +12,7 @@ if __name__ == "__main__":
         user_input_number = input("Enter the number: ")
 
         try:
-            print(num2words_fixed_minus_zero_one(user_input_number))
+            print(num2words(user_input_number))
         except ValueError:
             print("Please enter only the number!")
 

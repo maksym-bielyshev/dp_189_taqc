@@ -2,8 +2,7 @@
 
 import unittest
 from unittest import TestCase
-from num2words import num2words
-from num_to_words_converter import num2words_fixed_minus_zero_one
+from num_to_words_converter import num2words
 
 
 class TestNum2Words(TestCase):
@@ -39,18 +38,6 @@ class TestNum2Words(TestCase):
         :return: True or AssertionError
         """
         result = num2words('-0.5')
-        self.assertEqual(result, 'minus zero point five')
-
-
-class TestNum2WordsFixedMinusZeroOne(TestCase):
-    """Test for function 'num2words_fixed_minus_zero_one'."""
-
-    def test_negative_from_zero_to_one(self):
-        """Test function with argument that between zero and minus one.
-
-        :return: True or AssertionError
-        """
-        result = num2words_fixed_minus_zero_one('-0.5')
         self.assertEqual(result, 'minus zero point five')
 
 
