@@ -6,7 +6,7 @@ from num2words import num2words
 def num2words_fixed_minus_zero_one(func):
     """Convert number to the string representation.
 
-    :return: string with result
+    :return: decorated function
     """
     def wrapper(number):
         if 0 > float(number) > -1:
