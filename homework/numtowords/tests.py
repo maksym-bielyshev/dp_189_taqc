@@ -26,7 +26,7 @@ class TestNum2Words(TestCase):
         self.assertEqual(result, 'minus one')
 
     def test_positive_from_zero_to_one(self):
-        """Test function with argument that between zero and minus one.
+        """Test function with argument that between zero and one.
 
         :return: True or AssertionError
         """
