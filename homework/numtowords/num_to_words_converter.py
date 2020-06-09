@@ -9,6 +9,11 @@ def num2words_fixed_minus_zero_one(func):
     :return: decorated function
     """
     def wrapper(number):
+        """Adding a minus for a number in the range of 0 and -1.
+
+        :param number: string as a float number
+        :return: new fixed behavior for a decorated function
+        """
         if 0 > float(number) > -1:
             number_without_minus = str(number).lstrip("-")
             text_representation_without_minus = func(number_without_minus)
