@@ -43,6 +43,8 @@ class TestNum2Words(TestCase):
 
 
 class TestNum2WordsFixedMinusZeroOne(TestCase):
+    """Test for fixed function 'num2words_fixed_minus_zero_one'."""
+
     def test_negative_from_zero_to_one(self):
         """Test function with argument that between zero and minus one.
 
