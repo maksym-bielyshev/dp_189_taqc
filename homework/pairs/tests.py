@@ -5,7 +5,7 @@ from unittest import TestCase
 from homework.pairs.app import search_pairs
 
 
-class TestAdd(TestCase):
+class TestSearchPairs(TestCase):
     """Test cases for the function 'add'."""
 
     def test_all_arguments_are_greater_than_zero(self):
