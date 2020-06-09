@@ -6,7 +6,7 @@ from homework.pairs.app import search_pairs
 
 
 class TestSearchPairs(TestCase):
-    """Test cases for the function 'search_pairs'."""
+    """Test case for the function 'search_pairs'."""
 
     def test_all_arguments_are_greater_than_zero(self):
         """Test function with arguments that are greater than zero.
