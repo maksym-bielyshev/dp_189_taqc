@@ -211,7 +211,7 @@ class NonLetterCharacters(Rule):
         :param line: text file line
         :return: boolean with answer about finding a match
         """
-        return not line.isalpha()
+        return not line.lower().islower()
 
 
 display_rules = (
