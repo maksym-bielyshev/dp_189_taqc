@@ -3,7 +3,7 @@
 import os
 
 
-def get_stats(file) -> dict:
+def get_stats(file: str) -> dict:
     """Get required statistic about given file.
 
     :return: dictionary with statistic result
