@@ -1,10 +1,14 @@
-def get_stats():
-    """Statistic about given file: number of lines, number of empty lines,
-    number of lines with 'z', number of 'z' letter, number of lines with 'and'"""
+"""Get the statistics about the file and decide on the repetition."""
 
+
+def get_stats() -> dict:
+    """Get required statistic about given file.
+
+    :return: dictionary with statistic result
+    """
     file = input("File: ")
 
-    dict_result = {
+    result_dict = {
         'total_lines': 0,
         'empty_lines': 0,
         'z_lines': 0,
@@ -12,34 +16,31 @@ def get_stats():
         'and_lines': 0
     }
 
-    with open(file, 'r') as f:
+    with open(file) as f:
         for line in f:
-            dict_result['total_lines'] += 1
+            result_dict['total_lines'] += 1
 
             if line == '\n':
-                dict_result['empty_lines'] += 1
+                result_dict['empty_lines'] += 1
 
             if 'z' in line:
-                dict_result['z_lines'] += 1
+                result_dict['z_lines'] += 1
 
             if 'and' in line:
-                dict_result['and_lines'] += 1
+                result_dict['and_lines'] += 1
 
-            dict_result['z_letters'] += line.count('z')
+            result_dict['z_letters'] += line.count('z')
 
-        return dict_result
-
-
-def execution():
-    """Making a decision to repeat or stop the program."""
-
-    while True:
-        print(get_stats())
-        answer = input('Do you want to analyze another file? y/n: ').lower()
-        if answer != 'y':
-            print('Goodbye!')
-            break
+        return result_dict
 
 
 if __name__ == '__main__':
-    execution()
+
+    run_app = "y"
+    while run_app == "y":
+
+        result = get_stats()
+        for item in result:
+            print(f"{item}: {result[item]}")
+
+        run_app = input('Do you want to analyze another file? y/n: ').lower()
