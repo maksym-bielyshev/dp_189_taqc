@@ -7,3 +7,6 @@ Homework:
 5. "quiz"
 6. "timerdecorator"
 7. "filter"
+8. "mypy"
+9. "logging"
+10. "tests"
