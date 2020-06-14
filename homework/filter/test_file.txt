@@ -1,0 +1,13 @@
+(display) the line with the dot at the end.
+(no rules) the line without the dot at the end
+(display) the line with less than 100 characters
+(no rules) the line with more than 100 characters, the line with more than 100 characters, the line with more than 100 characters
+(display) the line with at least 5 a letters line. aaaaa
+(no rules) the line without at least 5 a letters
+(don't display) the line with more than 3 z letters. zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+(no rules) the line with less than 3 z letters
+
+(don't display) the empty line above
+123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123
+(don't display) the line above consists only from non-letter characters
+zaz zara Ararat ZULU Ozz and more amazing words
