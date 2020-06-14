@@ -1,14 +1,27 @@
+"""The app estimates a project based on the "three points" technique."""
+
 import math
 
 
 class Project:
+    """Project calculation."""
+
     def __init__(self, estimated_tasks, standard_deviation_tasks):
+        """
+
+        :param estimated_tasks:
+        :param standard_deviation_tasks:
+        """
         self.estimated_tasks = estimated_tasks
         self.standard_deviation_tasks = standard_deviation_tasks
         self.expected_value_project = None
         self.standard_error_project = None
 
     def calculate_expected_value_project(self):
+        """Calculate the expected value of the project.
+
+        :return:
+        """
         if self.expected_value_project is None:
             self.expected_value_project = sum(self.estimated_tasks)
         return self.expected_value_project
@@ -54,26 +67,38 @@ class Task:
 
 
 if __name__ == "__main__":
+
     estimated_tasks_values = []
     standard_deviation_tasks_values = []
 
-    while True:
-        def user_estimation():
-            best_case_estimate = int(input("Best-case estimate: "))
-            most_likely_estimate = int(input("Most-likely estimate: "))
-            worst_case_estimate = int(input("Worst-case estimate: "))
-            return \
-                best_case_estimate, most_likely_estimate, worst_case_estimate
+    run_app = "y"
+    while run_app == "y":
 
-        task = Task(*user_estimation())
+        best_case_estimate_str = input("Best-case estimate: ")
+        most_likely_estimate_str = input("Most-likely estimate: ")
+        worst_case_estimate_str = input("Worst-case estimate: ")
 
-        task_estimation = task.calculate_task_estimation()
-        estimated_tasks_values.append(task_estimation)
+        try:
+            best_case_estimate_int = int(best_case_estimate_str)
+            most_likely_estimate_int = int(best_case_estimate_str)
+            worst_case_estimate_int = int(best_case_estimate_str)
 
-        standard_deviation_task = task.calculate_task_standard_deviation()
-        standard_deviation_tasks_values.append(standard_deviation_task)
+        except ValueError:
+            print("Please enter valid data!")
+
+        else:
+            task = Task(best_case_estimate_int,
+                        most_likely_estimate_int,
+                        worst_case_estimate_int)
+
+            task_estimation = task.calculate_task_estimation()
+            estimated_tasks_values.append(task_estimation)
+
+            standard_deviation_task = task.calculate_task_standard_deviation()
+            standard_deviation_tasks_values.append(standard_deviation_task)
 
         answer = input("Do you want to add another task? y/n: ").lower()
+
         if answer != "y":
             project = Project(estimated_tasks_values,
                               standard_deviation_tasks_values)
@@ -87,4 +112,6 @@ if __name__ == "__main__":
             print(f"CI (confidence interval for project): "
                   f"{min_confidence_interval} ... "
                   f"{max_confidence_interval} points")
-            break
+
+            run_app = input(
+                "Do you want to calculate another project? y/n: ").lower()
