@@ -1,13 +1,13 @@
 """Get the statistics about the file and decide on the repetition."""
 
+import os
 
-def get_stats() -> dict:
+
+def get_stats(file) -> dict:
     """Get required statistic about given file.
 
     :return: dictionary with statistic result
     """
-    file = input("File: ")
-
     result_dict = {
         'total_lines': 0,
         'empty_lines': 0,
@@ -39,8 +39,14 @@ if __name__ == '__main__':
     run_app = "y"
     while run_app == "y":
 
-        result = get_stats()
-        for item in result:
-            print(f"{item}: {result[item]}")
+        user_file = input("Please enter a name of the file: ")
+
+        if os.path.exists(user_file) and user_file.endswith(".txt"):
+            result = get_stats(user_file)
+            for item in result:
+                print(f"{item}: {result[item]}")
+
+        else:
+            print("Wrong name or path, please try again!")
 
         run_app = input('Do you want to analyze another file? y/n: ').lower()
