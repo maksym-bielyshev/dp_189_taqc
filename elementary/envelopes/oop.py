@@ -61,5 +61,5 @@ if __name__ == '__main__':
 
                 print(example.check_nesting())
 
-                run_app = input('Do you want to continue? '
-                               'If yes, please enter "Yes" or "Y" ').lower()
+                run_app = input('Do you want to continue? If yes, please '
+                                'enter "Yes" or "Y" ').lower()
