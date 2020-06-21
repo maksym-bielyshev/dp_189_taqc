@@ -1,7 +1,7 @@
 """The application checks if one envelope can be nested in another."""
 
 
-def check_nesting(first_envelope, second_envelope):
+def check_nesting(first_envelope: tuple, second_envelope: tuple) -> str:
     """Check if one envelope can fit into another.
 
     :return: string with check result
