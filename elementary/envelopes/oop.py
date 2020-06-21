@@ -1,5 +1,6 @@
 """The application checks if one envelope can be nested in another."""
 
+
 class EnvelopeAnalysis:
     """Nesting check with sides provided from a user."""
 
