@@ -43,8 +43,8 @@ if __name__ == "__main__":
             print("Please enter only numbers!")
 
         else:
-            example = Chessboard(height_int, width_int)
-            if example.create_chessboard():
+            if height_int > 0 and width_int > 0:
+                example = Chessboard(height_int, width_int)
                 for item in example.create_chessboard():
                     print(item)
             else:
