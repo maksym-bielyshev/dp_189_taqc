@@ -13,7 +13,7 @@ class EnvelopeAnalysis:
         self.first_envelope = first_envelope
         self.second_envelope = second_envelope
 
-    def check_nesting(self):
+    def check_nesting(self) -> str:
         """Check if one envelope can fit into another.
 
         :return: string with check result
