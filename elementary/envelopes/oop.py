@@ -37,11 +37,11 @@ if __name__ == '__main__':
             first_side_first_envelope = float(input(
                 'Please enter the first side of the first envelope: '))
             second_side_first_envelope = float(input(
-                'Please enter the second side of the first envelope: : '))
+                'Please enter the second side of the first envelope: '))
             first_side_second_envelope = float(input(
-                'Please enter the first side of the second envelope: : '))
+                'Please enter the first side of the second envelope: '))
             second_side_second_envelope = float(input(
-                'Please enter the second side of the second envelope: : '))
+                'Please enter the second side of the second envelope: '))
 
         except(TypeError, ValueError):
             print('Please enter only numbers!')
@@ -52,9 +52,14 @@ if __name__ == '__main__':
             second_envelope_user = (first_side_second_envelope,
                                     second_side_second_envelope)
 
-            example = EnvelopeAnalysis(first_envelope_user,
-                                       second_envelope_user)
+            if min(first_envelope_user) < 0 or min(second_envelope_user) < 0:
+                print("Please enter only positive numbers.")
 
-            print(example.check_nesting())
+            else:
+                example = EnvelopeAnalysis(first_envelope_user,
+                                           second_envelope_user)
 
-            answer = input('Do you want to continue? "Yes" or "Y" ').lower()
+                print(example.check_nesting())
+
+                run_app = input('Do you want to continue? '
+                               'If yes, please enter "Yes" or "Y" ').lower()
