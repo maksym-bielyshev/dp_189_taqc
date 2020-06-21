@@ -1,1 +1,1 @@
-"""Application for sorting triangles."""
+"""Application for sorting triangles by their area."""
