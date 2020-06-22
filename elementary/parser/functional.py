@@ -20,19 +20,19 @@ def pick_option(option):
 def occurrences_counter(file: str,
                         line_for_search: str,
                         line_for_replace: str) -> str:
-        """Search for the number of line occurrences in the file.
+    """Search for the number of line occurrences in the file.
 
-        :param file: path to a file
-        :param line_for_search: the line to find in the file
-        :param line_for_replace: replacement line
-        :return: string with result
-        """
-        with open(file) as current_file:
-            occurrences_number = 0
-            for line in current_file:
-                if line.strip() == line_for_search:
-                    occurrences_number += 1
-            return f"Number of line occurrences: {occurrences_number}"
+    :param file: path to a file
+    :param line_for_search: the line to find in the file
+    :param line_for_replace: replacement line
+    :return: string with result
+    """
+    with open(file) as current_file:
+        occurrences_number = 0
+        for line in current_file:
+            if line.strip() == line_for_search:
+                occurrences_number += 1
+        return f"Number of line occurrences: {occurrences_number}"
 
 
 def replacer(file: str,
