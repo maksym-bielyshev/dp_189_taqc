@@ -10,13 +10,13 @@ class Option(ABC):
     @abstractmethod
     def process_file(self,
                      file: str,
-                     string_for_search: str,
-                     string_for_replace: str) -> None:
+                     line_for_search: str,
+                     line_for_replace: str) -> None:
         """Process a file with the specified parameters.
 
         :param file: path to a file
-        :param string_for_search: the string to find in the file
-        :param string_for_replace: replacement string
+        :param line_for_search: the line to find in the file
+        :param line_for_replace: replacement line
         :return: None
         """
         pass
@@ -41,13 +41,13 @@ class OccurrencesCounter(Option):
 
     def process_file(self,
                      file: str,
-                     string_for_search: str,
-                     string_for_replace: str) -> str:
+                     line_for_search: str,
+                     line_for_replace: str) -> str:
         """Search for the number of line occurrences in the file.
 
         :param file: path to a file
-        :param string_for_search: the string to find in the file
-        :param string_for_replace: replacement string
+        :param line_for_search: the line to find in the file
+        :param line_for_replace: replacement line
         :return: string with result
         """
         with open(file) as current_file:
@@ -63,13 +63,13 @@ class Replacer(Option):
 
     def process_file(self,
                      file: str,
-                     string_for_search: str,
-                     string_for_replace: str) -> str:
+                     line_for_search: str,
+                     line_for_replace: str) -> str:
         """Search for the number of line occurrences in the file.
 
         :param file: path to a file
-        :param string_for_search: the string to find in the file
-        :param string_for_replace: replacement string
+        :param line_for_search: the line to find in the file
+        :param line_for_replace: replacement line
         :return: string with result
         """
         with open(file) as provided_file, \
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
         user_mode = input("Please select the mode (enter the number): \n"
                           "1. Count the number of line occurrences. \n"
-                          "2. Replace the string with another one. \n")
+                          "2. Replace the line with another one. \n")
 
         user_option = Option.pick_option(user_mode)
 
