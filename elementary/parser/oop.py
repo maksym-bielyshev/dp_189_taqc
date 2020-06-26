@@ -11,7 +11,19 @@ class Option(ABC):
     def process_file(self,
                      file: str,
                      line_for_search: str,
-                     line_for_replace: str) -> None:
+                     line_for_replace) -> None:
+        """Process a file with the specified parameters.
+
+        :param file: path to a file
+        :param line_for_search: the line to find in the file
+        :param line_for_replace: replacement line
+        :return: None
+        """
+        pass
+
+    @abstractmethod
+    def process_file2(self,
+                     file: str) -> None:
         """Process a file with the specified parameters.
 
         :param file: path to a file
@@ -42,7 +54,7 @@ class OccurrencesCounter(Option):
     def process_file(self,
                      file: str,
                      line_for_search: str,
-                     line_for_replace: str) -> str:
+                     line_for_replace) -> str:
         """Search for the number of line occurrences in the file.
 
         :param file: path to a file
@@ -82,7 +94,7 @@ class Replacer(Option):
                 else:
                     replaced_file.write(line)
 
-        return f"Your new file is ready! Name of the file: (replaced_{file})"
+        return f"Your new file is ready! Name of the file: replaced_{file}"
 
 
 if __name__ == "__main__":
@@ -99,12 +111,16 @@ if __name__ == "__main__":
 
         user_option = Option.pick_option(user_mode)
 
-        if user_option:
+        if not user_option:
+            print("No such option!")
 
-            file = input("Please enter the path to the file: ")
+        else:
+            file = input("Please enter the path to the txt file: ")
 
-            if os.path.exists(file) and file.endswith(".txt"):
+            if not os.path.exists(file) or not file.endswith(".txt"):
+                print("No such file or file is not '*.txt'")
 
+            else:
                 line_for_search = \
                     input("Please enter the line you want to find: ")
 
@@ -114,19 +130,11 @@ if __name__ == "__main__":
                 else:
                     line_for_replace = None
 
-                result = user_option.process_file(
-                    file,
-                    line_for_search,
-                    line_for_replace
-                )
+                result = user_option.process_file(file,
+                                                  line_for_search,
+                                                  line_for_replace)
 
                 print(result)
 
                 run_app = input("Do you want to continue? "
                                 "If yes, enter 'y' or 'yes': ")
-
-            else:
-                print("No such file!")
-
-        else:
-            print("No such option!")

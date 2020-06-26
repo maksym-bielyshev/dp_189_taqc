@@ -7,7 +7,7 @@ def pick_option(option):
     """Pick an option.
 
     :param option: user provided option
-    :return: class with option or False
+    :return: function with option or False
     """
     if option == "1":
         return occurrences_counter
@@ -19,12 +19,12 @@ def pick_option(option):
 
 def occurrences_counter(file: str,
                         line_for_search: str,
-                        line_for_replace: str) -> str:
+                        line_for_replace = None) -> str:
     """Search for the number of line occurrences in the file.
 
     :param file: path to a file
     :param line_for_search: the line to find in the file
-    :param line_for_replace: replacement line
+    :param line_for_replace: replacement line (if provided)
     :return: string with result
     """
     with open(file) as current_file:
@@ -70,36 +70,32 @@ if __name__ == "__main__":
                           "1. Count the number of line occurrences. \n"
                           "2. Replace the line with another one. \n")
 
-        picked_function = pick_option(user_mode)
+        picked_option = pick_option(user_mode)
 
-        if picked_function:
+        if not picked_option:
+            print("No such option!")
 
-            file = input("Please enter the path to the file: ")
+        else:
+            file = input("Please enter the path to the txt file: ")
 
-            if os.path.exists(file) and file.endswith(".txt"):
+            if not os.path.exists(file) or not file.endswith(".txt"):
+                print("No such file or file is not '*.txt'")
 
+            else:
                 line_for_search = \
                     input("Please enter the line you want to find: ")
+
+                line_for_replace = None
 
                 if user_mode == "2":
                     line_for_replace = \
                         input("Please enter the line you want to replace: ")
-                else:
-                    line_for_replace = None
 
-                result = picked_function(
-                    file,
-                    line_for_search,
-                    line_for_replace
-                )
+                result = picked_option(file,
+                                       line_for_search,
+                                       line_for_replace)
 
                 print(result)
 
                 run_app = input("Do you want to continue? "
                                 "If yes, enter 'y' or 'yes': ")
-
-            else:
-                print("No such file!")
-
-        else:
-            print("No such option!")
